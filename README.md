@@ -19,17 +19,17 @@ What time do you want to start?
 v
 What subjects do you have?
 |
-v
-How much time per subject?
-|
-v
-How diffcult is each subject?
-|
-v 
+>
+    How much time per subject?
+    |
+    v   
+    How diffcult is each subject?
+    |
+    < 
 Gather info and send it to LLM
 |
 v
 Receive info from LLM
 |
-v
-Present info to user
+>
+    Present info to user
