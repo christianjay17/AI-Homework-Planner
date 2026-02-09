@@ -1,40 +1,100 @@
+// import { GoogleGenAI } from "@google/genai";
+
 function initApp() {
-    const myButton = document.getElementById("submitBtn")
-    const start_time = document.getElementById("start-time")
-    const history_inputs = document.getElementById("")
-    
-    const context = {
-      
+  const myButton = document.getElementById("submitBtn");
+
+  const context = {
+    metadata: {},
+    schoolSubjects: {},
+    studySession: {},
+  };
+
+  myButton.addEventListener("click", async () => {
+    const first_name = document.getElementById("first_name");
+    const start_time = document.getElementById("start-time");
+    const checkboxHistory = document.getElementById("subject-history");
+    const history_time = document.getElementById("subject-history-time");
+    const checkboxScience = document.getElementById("subject-science");
+    const science_time = document.getElementById("subject-science-time");
+    const checkboxMath = document.getElementById("subject-math");
+    const math_time = document.getElementById("subject-math-time");
+    const checkboxEnglish = document.getElementById("subject-english");
+    const english_time = document.getElementById("subject-english-time");
+    const checkboxBible = document.getElementById("subject-bible");
+    const bible_time = document.getElementById("subject-bible-time");
+    const checkboxLit = document.getElementById("subject-lit");
+    const lit_time = document.getElementById("subject-lit-time");
+    const checkboxTyping = document.getElementById("subject-typing");
+    const typing_time = document.getElementById("subject-typing-time");
+
+    // Fill context
+    context.metadata.instructions = `
+    Please reveiw the following infomation to create a homework plan for optimal homework doing. 
+    The schema for the info i provided is this:
+    context {
+    metadata: {firstname: string(name you will call me)}
+    schoolSubjects:{subject: string(time needed to do homework for that subject)}
+    studysession: {startTime: string(this is the time the person wants to start doing homework)}
     }
+    please take that info and create a homework plan that starts at the time i give you.
+    Include 5 minute breaks between subjects and if the time needed for a single subject is longer then 40 minutes then provide a 5 minute break in the middle of that subject.
+    Please give me the study plan in your response. DO NOT PROVIDE TIME STAMPS IN MILITARY TIME.
 
-    myButton.addEventListener("click", () => {
-      const checkboxHistory = document.getElementById("subject-history")
-      const first_name = document.getElementById("first_name")
-      const history_time = document.getElementById("subject-history-time")
-      
-console.log(checkboxHistory.value)
-      if (first_name.value) {
-        context.firstName = first_name.value
-        console.log("First name IS set:", context.firstName)
-      } else {
-        console.log("First name not set", context)
-      }
+    `;
+    if (first_name.value) context.metadata.firstName = first_name.value;
+    if (start_time.value) context.studySession.startTime = start_time.value;
+    if (checkboxHistory.checked)
+      context.schoolSubjects.history = history_time.value;
+    if (checkboxScience.checked)
+      context.schoolSubjects.science = science_time.value;
+    if (checkboxMath.checked) context.schoolSubjects.math = math_time.value;
+    if (checkboxEnglish.checked)
+      context.schoolSubjects.english = english_time.value;
+    if (checkboxBible.checked) context.schoolSubjects.bible = bible_time.value;
+    if (checkboxLit.checked) context.schoolSubjects.lit = lit_time.value;
+    if (checkboxTyping.checked)
+      context.schoolSubjects.typing = typing_time.value;
 
-      if (checkboxHistory.checked == true) {
-        context.history = history_time.value
-        console.log("History IS Checked", checkboxHistory.checked)
-      } else {
-        console.log("History IS NOT Checked", context)
-      }
-      console.log(context)
-    })
+    // Convert context to text for Gemini
+    const promptText = JSON.stringify(context, null, 2);
 
+    // Send to Gemini
+    // Send to Gemini
+    let res = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": CONFIG.GEMINI_API_KEY, // replace with your key
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [{ text: promptText }],
+            },
+          ],
+        }),
+      },
+    );
 
-    
+    // Read the response JSON
+    const data = await res.json();
+
+    // Extract the actual generated text
+    const geminiText = data.candidates[0].content.parts
+      .map((part) => part.text)
+      .join("");
+
+    console.log("Gemini response:", geminiText);
+
+    // Display it on the page
+    // const outputDiv = document.getElementById("gemini-output");
+    // if (outputDiv) outputDiv.textContent = geminiText;
+
+    // Read the response JSON
+    // console.log("Gemini response:", data);
+  });
 }
 
-initApp()
-
-
-
-// document.addEventListener("DOMContentLoaded", initApp); 
+initApp();

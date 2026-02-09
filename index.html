@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="module" src="config.js"></script>
     <script type="module" src="js/main.js"></script>
     <link rel="stylesheet" href="styles/index.css">
 </head>
@@ -58,22 +59,14 @@
         <input type="number" id="subject-bible-time">
         </div>
 
-         <div>
-        <input type="checkbox" id="subject-literature"/>
-        <label for="subject-literature">Literature</label>
+        
+        <div>
+        <input type="checkbox" id="subject-lit"/>
+        <label for="subject-lit">Literature</label>
         <div>
             <p>Estimated Work Time For Literature (In Minutes)</p>
         </div>
-        <input type="number" id="subject-literature-time">
-        </div>
-
-        <div>
-        <input type="checkbox" id="subject-literature"/>
-        <label for="subject-literature">Literature</label>
-        <div>
-            <p>Estimated Work Time For Literature (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-literature-time">
+        <input type="number" id="subject-lit-time">
         </div>
 
         <div>
@@ -90,5 +83,6 @@
 
 
         <button id="submitBtn">Get your plan</button>
+        <div id="gemini-output"></div>
 </body>
 </html>
