@@ -1,5 +1,4 @@
-// import { GoogleGenAI } from "@google/genai";
-
+import { CONFIG } from '../config.js'
 function initApp() {
   const myButton = document.getElementById("submitBtn");
 
@@ -66,7 +65,7 @@ function initApp() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-goog-api-key": CONFIG.GEMINI_API_KEY, // replace with your key
+          "x-goog-api-key": CONFIG.GEMINI_API_KEY || "AIzaSyDzeyl9kak8HfKhKj5rV3QZjAeDEhQiJeQ", // replace with your key
         },
         body: JSON.stringify({
           contents: [
@@ -89,8 +88,8 @@ function initApp() {
     console.log("Gemini response:", geminiText);
 
     // Display it on the page
-    // const outputDiv = document.getElementById("gemini-output");
-    // if (outputDiv) outputDiv.textContent = geminiText;
+    const outputDiv = document.getElementById("gemini-output");
+    if (outputDiv) outputDiv.textContent = geminiText;
 
     // Read the response JSON
     // console.log("Gemini response:", data);
@@ -98,3 +97,6 @@ function initApp() {
 }
 
 initApp();
+// *   **07:48 AM - 08:13 AM:** History (Part 1)
+// *   **08:13 AM - 08:18 AM:** 5-minute Break
+// *   **08:18 AM - 08:43 AM:** History (Part 2)
