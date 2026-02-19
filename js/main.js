@@ -1,5 +1,6 @@
-import { CONFIG } from '../config.js'
-import { handler } from '../api/hello.js'
+import { CONFIG } from "./config.js";
+import { handler } from "../api/hello.js";
+
 function initApp() {
   const myButton = document.getElementById("submitBtn");
 
@@ -9,12 +10,14 @@ function initApp() {
     studySession: {},
   };
 
-document.getElementById("get-server-btn").addEventListener("click", async () => {
-  const res = await fetch("/api/hello")
-  const data = await res.json()
+  document
+    .getElementById("get-server-btn")
+    .addEventListener("click", async () => {
+      const res = await fetch("/api/hello");
+      const data = await res.json();
 
-  document.getElementById("output").innerText = data.message
-})
+      document.getElementById("output").innerText = data.message;
+    });
 
   myButton.addEventListener("click", async () => {
     const first_name = document.getElementById("first_name");
@@ -64,34 +67,20 @@ document.getElementById("get-server-btn").addEventListener("click", async () => 
 
     // Convert context to text for Gemini
     const promptText = JSON.stringify(context, null, 2);
-
-    // Send to Gemini
-    // Send to Gemini
-    let res = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": CONFIG.GEMINI_API_KEY || "AIzaSyDzeyl9kak8HfKhKj5rV3QZjAeDEhQiJeQ", // replace with your key
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [{ text: promptText }],
-            },
-          ],
-        }),
-      },
-    );
-
+  const res = await fetch("../api/gemini.js", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ prompt: promptText }),
+  });
     // Read the response JSON
     const data = await res.json();
 
     // Extract the actual generated text
-    const geminiText = data.candidates[0].content.parts
+    const geminiText = data.result?.candidates[0].content?.parts
       .map((part) => part.text)
-      .join("");
+      .join("") || "No response from Gemini.";
 
     console.log("Gemini response:", geminiText);
 
@@ -108,4 +97,3 @@ initApp();
 // *   **07:48 AM - 08:13 AM:** History (Part 1)
 // *   **08:13 AM - 08:18 AM:** 5-minute Break
 // *   **08:18 AM - 08:43 AM:** History (Part 2)
-
