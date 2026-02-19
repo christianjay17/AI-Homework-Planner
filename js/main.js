@@ -1,5 +1,3 @@
-import { CONFIG } from "./config.js";
-import { handler } from "../api/hello.js";
 
 function initApp() {
   const myButton = document.getElementById("submitBtn");
