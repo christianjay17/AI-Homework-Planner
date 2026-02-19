@@ -8,6 +8,13 @@ function initApp() {
     studySession: {},
   };
 
+document.getElementById("get-server-btn").addEventListener("click", async () => {
+  const res = await fetch("/api/hello")
+  const data = await res.json()
+
+  document.getElementById("output").innerText = data.message
+})
+
   myButton.addEventListener("click", async () => {
     const first_name = document.getElementById("first_name");
     const start_time = document.getElementById("start-time");
@@ -100,3 +107,4 @@ initApp();
 // *   **07:48 AM - 08:13 AM:** History (Part 1)
 // *   **08:13 AM - 08:18 AM:** 5-minute Break
 // *   **08:18 AM - 08:43 AM:** History (Part 2)
+
