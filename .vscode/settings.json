@@ -1,0 +1,4 @@
+{
+    "editor.inlineSuggest.experimental.suppressInlineSuggestions": "stop",
+    "chat.disableAIFeatures": true
+}

@@ -82,6 +82,22 @@ function initApp() {
 
     console.log(data);
 
+    const modal = document.getElementById("gemini-modal");
+    const modalText = document.getElementById("gemini-text");
+    const closeModal = document.getElementById("close-modal");
+
+    modalText.textContent = geminiText;
+    modal.stylel.display = "block";
+
+    closeModal.onClick = () => {
+      modal.style.display = "none";
+    };
+
+    window.onClick = (event) => {
+      if (event.target === modal) {
+        modal.style.accentColor.display = "none";
+      }
+    };
     // Display it on the page
     const outputDiv = document.getElementById("gemini-output");
     if (outputDiv) outputDiv.textContent = geminiText;
