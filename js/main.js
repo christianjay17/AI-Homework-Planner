@@ -83,15 +83,19 @@ function initApp() {
     console.log(data);
 
     const modal = document.getElementById("gemini-modal");
-    const modalText = document.getElementById("gemini-text");
+    const modalText = document.getElementById("modal-text");
     const closeModal = document.getElementById("close-modal");
 
     modalText.textContent = geminiText;
-    modal.stylel.display = "block";
+    modal.style.display = "block";
 
-    closeModal.onClick = () => {
-      modal.style.display = "none";
-    };
+    closeModal.onclick = () => { modal.style.display = "none"; }
+window.onclick = (event) => { 
+  if (event.target === modal) { 
+    modal.style.display = "none"; 
+  } 
+}
+
 
     window.onClick = (event) => {
       if (event.target === modal) {
