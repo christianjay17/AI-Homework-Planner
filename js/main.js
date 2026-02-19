@@ -65,7 +65,7 @@ function initApp() {
 
     // Convert context to text for Gemini
     const promptText = JSON.stringify(context, null, 2);
-  const res = await fetch("../api/gemini", {
+  const res = await fetch("api/gemini", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
