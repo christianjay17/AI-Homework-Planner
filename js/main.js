@@ -76,11 +76,11 @@ function initApp() {
     const data = await res.json();
 
     // Extract the actual generated text
-    const geminiText = data.result?.candidates[0].content?.parts
-      .map((part) => part.text)
+    const geminiText = data?.result?.candidates?.[0]?.content?.parts
+      ?.map((part) => part.text)
       .join("") || "No response from Gemini.";
 
-    console.log("Gemini response:", geminiText);
+    console.log(data);
 
     // Display it on the page
     const outputDiv = document.getElementById("gemini-output");
