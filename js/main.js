@@ -128,8 +128,7 @@ window.onclick = (event) => {
       }
     };
     // Display it on the page
-    const outputDiv = document.getElementById("gemini-output");
-    if (outputDiv) outputDiv.textContent = geminiText;
+    
 
     // Read the response JSON
     // console.log("Gemini response:", data);

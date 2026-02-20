@@ -22,7 +22,7 @@
     margin-top: 17px
 }
 
-#subject-literature {
+#subject-lit {
     margin-top: 17px
 }
 
@@ -58,7 +58,7 @@
 
 #close-modal {
     float: fight;
-    front-size: 20px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -66,4 +66,45 @@
     white-space: pre-wrap;
     overflow-wrap: break-word;
     word-break: break-word;
+}
+.card {
+    margin: auto;
+    background: rgb(202, 215, 214);
+  padding: 30px;
+  border-radius: 16px;
+  width: fit-content;
+  /* max-width: 600px; */
+  box-shadow: 0 20px 40px rgba(28, 29, 29, 0.2);
+}
+body {
+    /* width: 100vh; */
+    /* justify-content: center; */
+    background-color: rgb(155, 192, 188);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* input {
+height: 20px;
+} */
+
+.time {
+    width: 50px;
+    height: 20px;
+}
+
+.column-titles {
+    display: flex;
+    gap: 219px;
+    font-weight: 1000;
+}
+
+.subject-rows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.subject-rows p {
+    margin: 0;
 }

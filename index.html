@@ -15,73 +15,52 @@
         <pre id="modal-text"></pre>
     </div>
 </div>
-    
-    <div><h1>AI Study Planner</div>
+    <div class="card">
+    <h1>AI Homework Planner</h1>
         <input type="text" id="first_name" placeholder="First Name"/>
         <input type="time" id="start-time">
+        <div class="column-titles"><p>Subject</p><p>EST. Time</p></div>
+        <div class="subject-rows">
+        <p>History</p>
         
-        <div>
-        <input type="checkbox" id="subject-history"/>
-        <label for="subject-history">History</label>
-        <div>
-            <p>Estimated Work Time For History (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-history-time">
+        <input class="time" type="number" id="subject-history-time">
         </div>
 
-        <div>
-        <input type="checkbox" id="subject-science"/>
-        <label for="subject-science">Science</label>
-        <div>
-            <p>Estimated Work Time For Science (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-science-time">
+        <div class="subject-rows">
+       <p>Science</p>
+        
+        <input class="time" type="number" id="subject-science-time">
         </div>
 
-         <div>
-        <input type="checkbox" id="subject-math"/>
-        <label for="subject-math">Math</label>
-        <div>
-            <p>Estimated Work Time For Math (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-math-time">
+         <div class="subject-rows">
+        <p>Math</p>
+        
+        <input class="time" type="number" id="subject-math-time">
         </div>
 
-         <div>
-        <input type="checkbox" id="subject-english"/>
-        <label for="subject-english">English</label>
-        <div>
-            <p>Estimated Work Time For English (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-english-time">
+         <div class="subject-rows">
+        <p>English</p>
+        
+        <input class="time" type="number" id="subject-english-time">
         </div>
 
-         <div>
-        <input type="checkbox" id="subject-bible"/>
-        <label for="subject-bible">Bible</label>
-        <div>
-            <p>Estimated Work Time For Bible (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-bible-time">
+         <div class="subject-rows">
+            <p>Bible</p>
+        
+        <input class="time" type="number" id="subject-bible-time">
         </div>
 
         
-        <div>
-        <input type="checkbox" id="subject-lit"/>
-        <label for="subject-lit">Literature</label>
-        <div>
-            <p>Estimated Work Time For Literature (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-lit-time">
+        <div class="subject-rows">
+        <p>Literature</p>
+        
+        <input class="time" type="number" id="subject-lit-time">
         </div>
 
-        <div>
-        <input type="checkbox" id="subject-typing"/>
-        <label for="subject-typing">Typing</label>
-        <div>
-            <p>Estimated Work Time For Typing (In Minutes)</p>
-        </div>
-        <input type="number" id="subject-typing-time">
+        <div class="subject-rows">
+        <p>Typing</p>
+
+        <input class="time" type="number" id="subject-typing-time">
         </div>
 
 
@@ -90,8 +69,7 @@
 
         <button id="submitBtn">Get your plan</button>
         <div id="gemini-output"></div>
-        <button id="get-server-btn">Get Server</button>
             <script type="module" src="js/main.js"></script>
-
+</div>
 </body>
 </html>
