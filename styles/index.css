@@ -52,10 +52,18 @@
     width: 80%;
     max-width: 500px;
     border-radius: 8px;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 #close-modal {
     float: fight;
     front-size: 20px;
     cursor: pointer;
+}
+
+#modal-text {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
