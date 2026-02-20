@@ -63,16 +63,14 @@ Your homework session will conclude at 5:38 PM."
 
      context.metadata.firstName = first_name.value;
     if (start_time.value) context.studySession.startTime = start_time.value;
-    if (checkboxHistory.value)
       context.schoolSubjects.history = history_time.value;
-    if (checkboxScience.value)
       context.schoolSubjects.science = science_time.value;
-    if (checkboxMath.value) context.schoolSubjects.math = math_time.value;
-    if (checkboxEnglish.value)
+      context.schoolSubjects.math = math_time.value;
+   
       context.schoolSubjects.english = english_time.value;
-    if (checkboxBible.value) context.schoolSubjects.bible = bible_time.value;
-    if (checkboxLit.value) context.schoolSubjects.lit = lit_time.value;
-    if (checkboxTyping.value)
+     context.schoolSubjects.bible = bible_time.value;
+     context.schoolSubjects.lit = lit_time.value;
+    
       context.schoolSubjects.typing = typing_time.value;
 
     // Convert context to text for Gemini
