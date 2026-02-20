@@ -74,18 +74,18 @@ Your homework session will conclude at 5:38 PM."
     DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!!
 
     `;
-    if (first_name.value) context.metadata.firstName = first_name.value;
+     context.metadata.firstName = first_name.value;
     if (start_time.value) context.studySession.startTime = start_time.value;
-    if (checkboxHistory.checked)
+    if (checkboxHistory.value)
       context.schoolSubjects.history = history_time.value;
-    if (checkboxScience.checked)
+    if (checkboxScience.value)
       context.schoolSubjects.science = science_time.value;
-    if (checkboxMath.checked) context.schoolSubjects.math = math_time.value;
-    if (checkboxEnglish.checked)
+    if (checkboxMath.value) context.schoolSubjects.math = math_time.value;
+    if (checkboxEnglish.value)
       context.schoolSubjects.english = english_time.value;
-    if (checkboxBible.checked) context.schoolSubjects.bible = bible_time.value;
-    if (checkboxLit.checked) context.schoolSubjects.lit = lit_time.value;
-    if (checkboxTyping.checked)
+    if (checkboxBible.value) context.schoolSubjects.bible = bible_time.value;
+    if (checkboxLit.value) context.schoolSubjects.lit = lit_time.value;
+    if (checkboxTyping.value)
       context.schoolSubjects.typing = typing_time.value;
 
     // Convert context to text for Gemini
@@ -128,7 +128,8 @@ window.onclick = (event) => {
       }
     };
     // Display it on the page
-    
+    // const outputDiv = document.getElementById("gemini-output");
+    // if (outputDiv) outputDiv.textContent = geminiText;
 
     // Read the response JSON
     // console.log("Gemini response:", data);
