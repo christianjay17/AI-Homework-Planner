@@ -7,7 +7,7 @@ function initApp() {
     schoolSubjects: {},
     studySession: {},
   };
-
+// hi
   
 
   myButton.addEventListener("click", async () => {
