@@ -8,14 +8,7 @@ function initApp() {
     studySession: {},
   };
 
-  document
-    .getElementById("get-server-btn")
-    .addEventListener("click", async () => {
-      const res = await fetch("/api/hello");
-      const data = await res.json();
-
-      document.getElementById("output").innerText = data.message;
-    });
+  
 
   myButton.addEventListener("click", async () => {
     const first_name = document.getElementById("first_name");
@@ -74,6 +67,7 @@ Your homework session will conclude at 5:38 PM."
     DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!!
 
     `;
+
      context.metadata.firstName = first_name.value;
     if (start_time.value) context.studySession.startTime = start_time.value;
     if (checkboxHistory.value)
