@@ -46,7 +46,32 @@ function initApp() {
     }
     please take that info and create a homework plan that starts at the time i give you.
     Include 5 minute breaks between subjects and if the time needed for a single subject is longer then 40 minutes then provide a 5 minute break in the middle of that subject.
-    Please give me the study plan in your response. DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!!
+    Please give me the study plan in your response. 
+
+
+    provide response in exactly this format:
+    "Here is your homework plan, {first name}:
+
+{start time for that period} - {end time for that period}: {subject} ({# of minutes} minutes)
+{start time for that period} - {end time for that period}: Take a 5 minute break      (ONLY ADD BREAKS IF SUBJECT IS OVER 40 MINUTES)
+{start time for that period} - {end time for that period}: {subject} (Part 1 - {# of minutes} minutes)
+{start time for that period} - {end time for that period}: Take a 5 minute break (mid-subject)
+{start time for that period} - {end time for that period}: {subject} (Part 2 - {# of minutes} minutes)
+
+Your homework session will conclude at {time the session will conclude at}."
+
+EXAMPLE(DO NOT USE THIS IN REAL RESPONSE): 
+"Here is your homework plan, christian:
+
+4:17 PM - 4:47 PM: History (30 minutes)
+4:47 PM - 4:52 PM: Take a 5 minute break
+4:52 PM - 5:12 PM: Science (Part 1 - 20 minutes)
+5:12 PM - 5:17 PM: Take a 5 minute break (mid-subject)
+5:17 PM - 5:38 PM: Science (Part 2 - 21 minutes)
+
+Your homework session will conclude at 5:38 PM."
+    
+    DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!!
 
     `;
     if (first_name.value) context.metadata.firstName = first_name.value;
