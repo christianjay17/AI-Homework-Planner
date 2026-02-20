@@ -46,7 +46,7 @@ function initApp() {
     }
     please take that info and create a homework plan that starts at the time i give you.
     Include 5 minute breaks between subjects and if the time needed for a single subject is longer then 40 minutes then provide a 5 minute break in the middle of that subject.
-    Please give me the study plan in your response. DO NOT PROVIDE TIME STAMPS IN MILITARY TIME.
+    Please give me the study plan in your response. DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!!
 
     `;
     if (first_name.value) context.metadata.firstName = first_name.value;
