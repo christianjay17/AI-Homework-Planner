@@ -13,19 +13,12 @@ function initApp() {
   myButton.addEventListener("click", async () => {
     const first_name = document.getElementById("first_name");
     const start_time = document.getElementById("start-time");
-    const checkboxHistory = document.getElementById("subject-history");
     const history_time = document.getElementById("subject-history-time");
-    const checkboxScience = document.getElementById("subject-science");
     const science_time = document.getElementById("subject-science-time");
-    const checkboxMath = document.getElementById("subject-math");
     const math_time = document.getElementById("subject-math-time");
-    const checkboxEnglish = document.getElementById("subject-english");
     const english_time = document.getElementById("subject-english-time");
-    const checkboxBible = document.getElementById("subject-bible");
     const bible_time = document.getElementById("subject-bible-time");
-    const checkboxLit = document.getElementById("subject-lit");
     const lit_time = document.getElementById("subject-lit-time");
-    const checkboxTyping = document.getElementById("subject-typing");
     const typing_time = document.getElementById("subject-typing-time");
 
     // Fill context
