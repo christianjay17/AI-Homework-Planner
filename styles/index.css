@@ -108,3 +108,7 @@ height: 20px;
 .subject-rows p {
     margin: 0;
 }
+
+#title {
+    text-align: center;
+}
