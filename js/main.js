@@ -101,7 +101,7 @@ try {
   });
 }
     // Read the response JSON
-    const data = await res.json();
+    catch data = await res.json();
 
     // Extract the actual generated text
     const geminiText = data?.result?.candidates?.[0]?.content?.parts
