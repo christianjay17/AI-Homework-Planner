@@ -20,6 +20,7 @@ function initApp() {
     const bible_time = document.getElementById("subject-bible-time");
     const lit_time = document.getElementById("subject-lit-time");
     const typing_time = document.getElementById("subject-typing-time");
+    const btn = document.getElementById("submitBtn")
 
     // Fill context
     context.metadata.instructions = `
@@ -75,6 +76,22 @@ Your homework session will conclude at 5:38 PM."
 
     // Convert context to text for Gemini
     const promptText = JSON.stringify(context, null, 2);
+
+    // Animation start
+
+const originalText = btn.textContent;
+btn.disabled = true;
+let dots = 0;
+const interval - setInterval(() => {
+  dots = (dots + 1) % 4;
+  btn.textContent = "Generating" + ".".repeat(dots);
+}, 400);
+    
+
+    
+
+
+try {
   const res = await fetch("api/gemini", {
     method: "POST",
     headers: {
@@ -82,6 +99,7 @@ Your homework session will conclude at 5:38 PM."
     },
     body: JSON.stringify({ prompt: promptText }),
   });
+}
     // Read the response JSON
     const data = await res.json();
 
@@ -91,6 +109,10 @@ Your homework session will conclude at 5:38 PM."
       .join("") || "No response from Gemini.";
 
     console.log(data);
+
+    clearInterval(interval);
+    btn.textContent = originalText;
+    btn.disabled = false;
 
     const modal = document.getElementById("gemini-modal");
     const modalText = document.getElementById("modal-text");
@@ -112,6 +134,12 @@ window.onclick = (event) => {
         modal.style.accentColor.display = "none";
       }
     };
+    catch (err) {
+      clearInterval(interval);
+      btn.textContnet = originalText;
+      btn.disabled = false;
+      console.log(err)
+    }
     // Display it on the page
     // const outputDiv = document.getElementById("gemini-output");
     // if (outputDiv) outputDiv.textContent = geminiText;
