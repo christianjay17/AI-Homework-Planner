@@ -82,7 +82,7 @@ Your homework session will conclude at 5:38 PM."
 const originalText = btn.textContent;
 btn.disabled = true;
 let dots = 0;
-const interval - setInterval(() => {
+const interval = setInterval(() => {
   dots = (dots + 1) % 4;
   btn.textContent = "Generating" + ".".repeat(dots);
 }, 400);
