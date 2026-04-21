@@ -1,4 +1,3 @@
-
 function initApp() {
   const myButton = document.getElementById("submitBtn");
 
