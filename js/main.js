@@ -7,7 +7,6 @@ function initApp() {
     schoolSubjects: {},
     studySession: {},
   };
-// hi
   
 
   myButton.addEventListener("click", async () => {
@@ -22,7 +21,6 @@ function initApp() {
   const typing_time = document.getElementById("subject-typing-time");
   const btn = document.getElementById("submitBtn");
 
-  // Fill context with your full prompt
   context.metadata.instructions = `
 Please reveiw the following infomation to create a homework plan for optimal homework doing. 
 The schema for the info i provided is this:
@@ -72,7 +70,6 @@ DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!! M
 
   const promptText = JSON.stringify(context, null, 2);
 
-  // ===== Start "Generating..." animation =====
   const originalText = btn.textContent;
   btn.disabled = true;
   let dots = 0;
@@ -80,7 +77,6 @@ DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!! M
     dots = (dots + 1) % 4;
     btn.textContent = "Generating" + ".".repeat(dots);
   }, 400);
-  // ==========================================
 
   try {
     const res = await fetch("/api/gemini", {
@@ -99,11 +95,9 @@ DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!! M
 
     console.log(data);
 
-    // ===== Stop animation =====
     clearInterval(interval);
     btn.textContent = originalText;
     btn.disabled = false;
-    // ==========================
 
     const modal = document.getElementById("gemini-modal");
     const modalText = document.getElementById("modal-text");
@@ -118,7 +112,6 @@ DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!! M
     };
 
   } catch (err) {
-    // Stop animation on error
     clearInterval(interval);
     btn.textContent = originalText;
     btn.disabled = false;
@@ -128,6 +121,3 @@ DO NOT PROVIDE TIME STAMPS IN MILITARY TIME. DO NOT INCLUDE "*" IN RESPONSE!!! M
 }
 
 initApp();
-// *   **07:48 AM - 08:13 AM:** History (Part 1)
-// *   **08:13 AM - 08:18 AM:** 5-minute Break
-// *   **08:18 AM - 08:43 AM:** History (Part 2)
